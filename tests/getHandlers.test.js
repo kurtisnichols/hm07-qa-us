@@ -1,10 +1,12 @@
-// eslint-disable-next-line no-undef
 const config = require('../config');
 
-test('', async () => {
-	try {
-		const response = await fetch(`${config.API_URL}/your/endpoint`);
-	} catch (error) {
-		console.error(error);
-	}
+test('status should be 200', async () => {
+  let actualStatus;
+  try {
+    const response = await fetch(`${config.API_URL}/api/v1/warehouse`);
+    actualStatus = response.status;
+  } catch (error) {
+    console.error(error);
+  }
+  expect(actualStatus).toBe(200);
 });
