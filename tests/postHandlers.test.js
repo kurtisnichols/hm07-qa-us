@@ -14,7 +14,7 @@ const requestBody = {
 		]
 }
 
-test('Status code should be 200', async () => {
+test('Should be 200 status code', async () => {
 	let actualStatus;
 	try {
 	  const response = await fetch(`${config.API_URL}/api/v1/warehouses/check`, {
@@ -24,10 +24,8 @@ test('Status code should be 200', async () => {
 		},
 		body: JSON.stringify(requestBody)
 	  });
-	  console.log('Response:', response);
   
 	  actualStatus = response.status;
-	  console.log('Actual Status:', actualStatus);
   
 	  expect(actualStatus).toBe(200);
   
@@ -36,7 +34,7 @@ test('Status code should be 200', async () => {
 	}
   });
 
-  test('number of warehouses should be 4', async () => {
+  test('Should show number of warehouses to be 4', async () => {
     let response;
     try {
         response = await fetch(`${config.API_URL}/api/v1/warehouses/check`);

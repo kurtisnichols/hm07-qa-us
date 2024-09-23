@@ -5,7 +5,7 @@ const requestBody = {
     "price": 2
 }
 
-test('Status code is 200', async () => {
+test('Should be 200 status code', async () => {
     try {
 		const response = await fetch(`${config.API_URL}/api/v1/products/7`, {
 			method: 'PUT',
@@ -14,10 +14,8 @@ test('Status code is 200', async () => {
 			},
 			body: JSON.stringify(requestBody)
 		});
-		console.log('Response:', response);
   
 		actualStatus = response.status;
-		console.log('Actual Status:', actualStatus);
 	
 		expect(actualStatus).toBe(200);
 	
@@ -26,7 +24,7 @@ test('Status code is 200', async () => {
 	  }
 	});
 	
-	test('Price for item 7 is 2', async () => {
+	test('Should show price of item 7 as 2', async () => {
 		let response;
 		try {
 			response = await fetch(`${config.API_URL}/api/v1/products/7`);
